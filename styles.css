@@ -1,1 +1,16 @@
+ body{
+    display: grid;
+    
+    height: 100%;
+    background-image:url("images/library.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+ }
  
+ button {
+    background-color: brown;
+    color: yellow;
+    border: none;
+    border-radius: 5px;
+ }
