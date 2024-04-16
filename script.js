@@ -10,10 +10,24 @@ function Book (title, author, pages, status) {
     }
   }
 
-  function addBookToLibrary {
-    
+  function addBookToLibrary () {
+    myLibrary.push(new Book)
+  }
+
+  function searchBook () {
+    for (Array.length in myLibrary){
+
+    }
+
   }
   
-//   const book1 = new Book ("The name of the wind", "Patrick Rothfuss", 500, "have read")
-//   console.log(book1.info())
-//   console.log (book1.valueOf())
+  myLibrary.push( new Book ("Dune", "Frank Herbert", 800, "haven't read"))
+  console.log(myLibrary[0].info())
+  console.log (myLibrary[0].valueOf())
+
+  myLibrary.push(new Book ("The Name of the wind", "Patrick Rothfuss", 600, "have read"))
+
+  myLibrary.push(new Book ("The Wise Mans Fear", "Patrick Rothfuss", 700, "curently reading"))
+
+
+
