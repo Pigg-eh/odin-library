@@ -1,6 +1,4 @@
  body{
-    display: grid;
-    
     height: 100%;
     background-image:url("images/library.png");
     background-repeat: no-repeat;
@@ -13,4 +11,10 @@
     color: yellow;
     border: none;
     border-radius: 5px;
+ }
+
+ table {
+   color: white;
+   text-shadow: 1px black;
+   border: 1px solid white;
  }

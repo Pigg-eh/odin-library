@@ -10,24 +10,45 @@ function Book (title, author, pages, status) {
     }
   }
 
-  function addBookToLibrary () {
-    myLibrary.push(new Book)
+  createTable()
+  function createTable () {
+    let headingNames = ["Title", "Author", "Pages", "Status"]
+    let table = document.querySelector('table.library');
+    let rows = document.createElement("tr")
+      headingNames.forEach((arr) => {
+        let tableHeader = document.createElement('th');
+        tableHeader.textContent = arr;
+        rows.appendChild(tableHeader);
+      });
+
+      table.appendChild(rows)
+
+      // table.appendChild(tableHeader)
+
   }
 
-  function searchBook () {
-    for (Array.length in myLibrary){
+  function addBookToLibrary (title, author, pages, status) {
+    myLibrary.push(new Book(title, author, pages, status))
+  }
 
+  function insertBook () { //adds books to library dom maniputlation 
+    
+
+    for (book in myLibrary){
+      
     }
 
   }
   
-  myLibrary.push( new Book ("Dune", "Frank Herbert", 800, "haven't read"))
-  console.log(myLibrary[0].info())
-  console.log (myLibrary[0].valueOf())
 
-  myLibrary.push(new Book ("The Name of the wind", "Patrick Rothfuss", 600, "have read"))
+  //TEST BOOKS//
+  addBookToLibrary ("Dune", "Frank Herbert", 800, "haven't read")
 
-  myLibrary.push(new Book ("The Wise Mans Fear", "Patrick Rothfuss", 700, "curently reading"))
+  addBookToLibrary ("The Name of the wind", "Patrick Rothfuss", 600, "have read")
+
+  addBookToLibrary ("The Wise Mans Fear", "Patrick Rothfuss", 700, "curently reading")
+
+  addBookToLibrary ("The Guest List", "Gillian Flynn", 320, "haven't read")
 
 
 
