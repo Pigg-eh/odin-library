@@ -13,10 +13,10 @@ function Book (title, author, pages, status) {
 
 
 
-  insertBook ()
-  function insertBook () {
+  insertHeader ()
+  function insertHeader () {
     
-   
+    
       let rows = document.createElement("tr")
       let table = document.querySelector('table.library');
       table.appendChild(rows)
@@ -31,20 +31,13 @@ function Book (title, author, pages, status) {
       }); 
   }
 
-  //attempt at populating table 
-  
   function populateTable (myLibrary, length) {
 
-    
     let table = document.querySelector('table.library');
-    
-     
-
     for (i=0; i < length; i++){
-      // table.appendChild(rows)
       let newRow = table.insertRow(i+1);
         table.appendChild(newRow)
-      
+
         Object.values(myLibrary[i]).forEach((key) => {
           if(typeof(key) != "function"){
             
@@ -53,17 +46,23 @@ function Book (title, author, pages, status) {
             let tableCell = document.createElement('td');
             tableCell.textContent = key;
             newRow.append(tableCell);
-         }
+          }
         });
       } 
     }
+
+    function clearTable (){
+      let table = document.querySelector('table.library');
+      table.remove('td')
+    }
   
-
-
 
   function addBookToLibrary (title, author, pages, status) {
     myLibrary.push(new Book(title, author, pages, status))
   }
+
+
+
 
 
   
@@ -80,4 +79,5 @@ function Book (title, author, pages, status) {
   populateTable (myLibrary, myLibrary.length)
 
 
+  clearTable ()
 
