@@ -35,24 +35,26 @@ function Book (title, author, pages, status) {
   
   function populateTable (myLibrary, length) {
 
-    let rows = document.createElement("tr")
+    
     let table = document.querySelector('table.library');
-
+    
      
 
     for (i=0; i < length; i++){
-      table.appendChild(rows)
+      // table.appendChild(rows)
+      let newRow = table.insertRow(i+1);
+        table.appendChild(newRow)
       
         Object.values(myLibrary[i]).forEach((key) => {
           if(typeof(key) != "function"){
+            
 
             console.log(typeof(key))
-            let tableRow = document.createElement('td');
-            tableRow.textContent = key;
-            rows.append(tableRow);
+            let tableCell = document.createElement('td');
+            tableCell.textContent = key;
+            newRow.append(tableCell);
          }
         });
-        
       } 
     }
   
