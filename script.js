@@ -31,8 +31,8 @@ function Book (title, author, pages, status) {
       }); 
   }
 
-  function populateTable (myLibrary, length) {
-
+  function populateTable (myLibrary, length) { 
+//remove for loop in future and use length-1 property instead
     let table = document.querySelector('table.library');
     for (i=0; i < length; i++){
       let newRow = table.insertRow(i+1);
@@ -50,8 +50,9 @@ function Book (title, author, pages, status) {
         });
       } 
     }
+    
 
-    function clearTable (){
+    function clearTable (){ //take out for loop maybe
       let table = document.querySelector('table.library');
       table.remove('td')
     }
@@ -79,5 +80,4 @@ function Book (title, author, pages, status) {
   populateTable (myLibrary, myLibrary.length)
 
 
-  clearTable ()
 

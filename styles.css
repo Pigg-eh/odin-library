@@ -6,7 +6,7 @@
     background-size: 100% 100%;
  }
  
- button {
+ input.button {
     background-color: brown;
     color: yellow;
     border: none;

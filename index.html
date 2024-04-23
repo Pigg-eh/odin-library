@@ -8,7 +8,22 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-     <button>Add new book</button>
-     <table class="library"></table>
+    <table class="library"></table>
+    <input class="button" type = "button" onclick = "clearTable()" value = "Add new book">  
+
+    <form action="">
+
+        <br><label for="title">Title:</label>
+        <br><input type="text" name="title" id="title" value="Harry Potter">
+
+        <br><label for="author">Author:</label>
+        <br><input type="text" name="author" id="author" value="Joke Rowling">
+
+        <br><label for="pages">Pages:</label>
+        <br><input type="text" name="pages" id="pages" value="860">
+
+        <br><label for="status">Read Status:</label>
+        <br><input type="text" name="status" id="status" value="have read">
+    </form>
 </body>
 </html>
