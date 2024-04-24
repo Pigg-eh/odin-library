@@ -56,7 +56,18 @@ function Book (title, author, pages, status) {
       let table = document.querySelector('table.library');
       table.remove('td')
     }
-  
+
+    function toggleForm () {
+      let form = document.querySelector('form')
+      const formVisibility = window.getComputedStyle(form).visibility; 
+
+        if (formVisibility === 'hidden') { 
+          form.style.visibility = 'visible'; 
+      } else { 
+          form.style.visibility = 'hidden'; 
+      } 
+    } 
+    
 
   function addBookToLibrary (title, author, pages, status) {
     myLibrary.push(new Book(title, author, pages, status))
@@ -74,6 +85,10 @@ function Book (title, author, pages, status) {
   addBookToLibrary ("The Name of the wind", "Patrick Rothfuss", 600, "have read")
 
   addBookToLibrary ("The Wise Mans Fear", "Patrick Rothfuss", 700, "curently reading")
+
+  addBookToLibrary ("The Guest List", "Gillian Flynn", 320, "haven't read")
+
+  addBookToLibrary ("The Guest List", "Gillian Flynn", 320, "haven't read")
 
   addBookToLibrary ("The Guest List", "Gillian Flynn", 320, "haven't read")
 
