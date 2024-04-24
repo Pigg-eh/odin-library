@@ -22,7 +22,7 @@ function Book (title, author, pages, status) {
       table.appendChild(rows)
 
     
-    let info = ["Title", "Author", "Pages", "Status"]
+    let info = ["Title", "Author", "Pages", "Status", "Remove"]
       info.forEach((arr) => {
         
         let tableHeader = document.createElement('th');
@@ -48,6 +48,12 @@ function Book (title, author, pages, status) {
             newRow.append(tableCell);
           }
         });
+
+        let lastColumn = document.querySelector('tr:last-child');
+        let removeButton = document.createElement('button')
+        lastColumn.appendChild(removeButton)
+        removeButton.textContent = '-'
+        lastColumn.append(removeButton)
       } 
     }
     
@@ -72,6 +78,7 @@ function Book (title, author, pages, status) {
   function addBookToLibrary (title, author, pages, status) {
     myLibrary.push(new Book(title, author, pages, status))
   }
+
 
 
 
