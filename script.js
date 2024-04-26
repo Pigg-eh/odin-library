@@ -32,7 +32,6 @@ function Book (title, author, pages, status) {
   }
 
   function populateTable (myLibrary, length) { 
-//remove for loop in future and use length-1 property instead
     let table = document.querySelector('table.library');
     for (i=0; i < length; i++){
       let newRow = table.insertRow(i+1);
@@ -49,12 +48,30 @@ function Book (title, author, pages, status) {
           }
         });
 
-        let lastColumn = document.querySelector('tr:last-child');
-        let removeButton = document.createElement('button')
-        lastColumn.appendChild(removeButton)
-        removeButton.textContent = '-'
-        lastColumn.append(removeButton)
+        
+        createButton ()
+        removeElement ()
       } 
+    }
+
+    function createButton (element) {
+      let lastColumn = document.querySelector('tr:last-child');
+        let btnNode = document.createElement('button')
+        
+        lastColumn.appendChild(btnNode)
+        btnNode.textContent = '-'
+        lastColumn.append(btnNode)
+
+    }
+
+    function removeElement () {
+      let removeBtn = document.querySelector('tr:last-child > button')
+        removeBtn.addEventListener('click', () => {
+        // myLibrary.splice (indexOf(), 1)
+        console.log('thomas cat')
+
+      });
+
     }
     
 
@@ -79,6 +96,12 @@ function Book (title, author, pages, status) {
     myLibrary.push(new Book(title, author, pages, status))
   }
 
+
+  //maybe delete this
+  let title= document.getElementById('title').value;
+  let author= document.getElementById('author').value;
+  let pages= document.getElementById('pages').value;
+  let status= document.getElementById('status').value;
 
 
 
