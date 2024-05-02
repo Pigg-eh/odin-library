@@ -45,6 +45,8 @@ function Book (title, author, pages, status) {
             let tableCell = document.createElement('td');
             tableCell.textContent = key;
             newRow.append(tableCell);
+
+            //assign row number attribute from here
           }
         });
 
@@ -96,15 +98,18 @@ function Book (title, author, pages, status) {
     myLibrary.push(new Book(title, author, pages, status))
   }
 
-
-  //maybe delete this
-  let title= document.getElementById('title').value;
-  let author= document.getElementById('author').value;
-  let pages= document.getElementById('pages').value;
-  let status= document.getElementById('status').value;
-
-
-
+  //addBookToLibrary not working as intended, maybe a scope issue
+  //not getting added to myLibrary array 
+  //value is getting added to the "*Value" variables
+  
+  function getUserInput(event){ 
+    let titleValue= document.getElementById('title').value;
+    let authorValue= document.getElementById('author').value;
+    let pagesValue= document.getElementById('pages').value;
+    let statusValue= document.getElementById('status').value;
+    event.preventDefault()
+    addBookToLibrary(titleValue, authorValue, pagesValue, statusValue)
+  }
 
 
   
@@ -115,10 +120,6 @@ function Book (title, author, pages, status) {
   addBookToLibrary ("The Name of the wind", "Patrick Rothfuss", 600, "have read")
 
   addBookToLibrary ("The Wise Mans Fear", "Patrick Rothfuss", 700, "curently reading")
-
-  addBookToLibrary ("The Guest List", "Gillian Flynn", 320, "haven't read")
-
-  addBookToLibrary ("The Guest List", "Gillian Flynn", 320, "haven't read")
 
   addBookToLibrary ("The Guest List", "Gillian Flynn", 320, "haven't read")
 
