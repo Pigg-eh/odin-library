@@ -109,7 +109,6 @@ function Book (title, author, pages, status) {
     let statusValue= document.getElementById('status').value;
     event.preventDefault()
     addBookToLibrary(titleValue, authorValue, pagesValue, statusValue)
-    populateTable(myLibrary[(myLibrary.length)-1], 1)
   }
 
 
