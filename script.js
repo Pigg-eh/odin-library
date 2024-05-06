@@ -100,7 +100,7 @@ function Book (title, author, pages, status) {
 
   //addBookToLibrary not working as intended, maybe a scope issue
   //not getting added to myLibrary array 
-  //value is getting added to the "Value" variables
+  //value is getting added to the "*Value" variables
   
   function getUserInput(event){ 
     let titleValue= document.getElementById('title').value;
@@ -109,8 +109,7 @@ function Book (title, author, pages, status) {
     let statusValue= document.getElementById('status').value;
     event.preventDefault()
     addBookToLibrary(titleValue, authorValue, pagesValue, statusValue)
-
-    
+    populateTable(myLibrary[(myLibrary.length)-1], 1)
   }
 
 
@@ -122,10 +121,6 @@ function Book (title, author, pages, status) {
   addBookToLibrary ("The Name of the wind", "Patrick Rothfuss", 600, "have read")
 
   addBookToLibrary ("The Wise Mans Fear", "Patrick Rothfuss", 700, "curently reading")
-
-  addBookToLibrary ("The Guest List", "Gillian Flynn", 320, "haven't read")
-
-  addBookToLibrary ("The Guest List", "Gillian Flynn", 320, "haven't read")
 
   addBookToLibrary ("The Guest List", "Gillian Flynn", 320, "haven't read")
 
