@@ -1,7 +1,6 @@
 const myLibrary = [];
 
-
-function Book (title, author, pages, status) {
+function Book(title, author, pages, status) {
     this.title = title
     this.author = author
     this.pages = pages
@@ -11,34 +10,42 @@ function Book (title, author, pages, status) {
     }
   }
 
-
-
-  insertHeader ()
-  function insertHeader () {
+  insertHeader()
+  function insertHeader() {
     
-    
-      let rows = document.createElement("tr")
-      let table = document.querySelector('table.library');
-      table.appendChild(rows)
+    let rows = document.createElement('tr')
+    let tableNode = document.querySelector('table.library');
+    tableNode.appendChild(rows)
 
-    
-    let info = ["Title", "Author", "Pages", "Status", "Remove"]
-      info.forEach((arr) => {
-        
-        let tableHeader = document.createElement('th');
-        tableHeader.textContent = arr;
-        rows.appendChild(tableHeader);
-      }); 
+  
+  let info = ['Title', 'Author', 'Pages', 'Status', 'Remove']
+    info.forEach((arr) => {
+      
+      let tableHeader = document.createElement('th');
+      tableHeader.textContent = arr;
+      rows.appendChild(tableHeader);
+    }); 
   }
 
-  function populateTable (myLibrary, length) { 
+
+  function insertTable() { 
+    
+    let table = document.createElement('table')
+    table.classList.add('library')
+    let bodyNode = document.querySelector('body')
+    bodyNode.insertBefore(table, bodyNode.firstChild)
+    
+    insertHeader()
+  }
+
+  function insertValues(myLibrary, length) { 
     let table = document.querySelector('table.library');
     for (i=0; i < length; i++){
       let newRow = table.insertRow(i+1);
         table.appendChild(newRow)
 
         Object.values(myLibrary[i]).forEach((key) => {
-          if(typeof(key) != "function"){
+          if(typeof(key) != 'function'){
             
 
             console.log(typeof(key))
@@ -51,12 +58,12 @@ function Book (title, author, pages, status) {
         });
 
         
-        createButton ()
-        removeElement ()
+        createButton()
+        // removeElement()
       } 
     }
 
-    function createButton (element) {
+    function createButton(element) {
       let lastColumn = document.querySelector('tr:last-child');
         let btnNode = document.createElement('button')
         
@@ -66,23 +73,26 @@ function Book (title, author, pages, status) {
 
     }
 
-    function removeElement () {
+    function removeElement() {
       let removeBtn = document.querySelector('tr:last-child > button')
         removeBtn.addEventListener('click', () => {
         // myLibrary.splice (indexOf(), 1)
         console.log('thomas cat')
-
       });
+
 
     }
     
 
-    function clearTable (){ //take out for loop maybe
-      let table = document.querySelector('table.library');
+    function clearTable(){ //take out for loop maybe
+      let table = document.querySelector('table');
       table.remove('td')
+
+
+      insertTable()
     }
 
-    function toggleForm () {
+    function toggleForm() {
       let form = document.querySelector('form')
       const formVisibility = window.getComputedStyle(form).visibility; 
 
@@ -94,13 +104,13 @@ function Book (title, author, pages, status) {
     } 
     
 
-  function addBookToLibrary (title, author, pages, status) {
+  function addBookToLibrary(title, author, pages, status) {
     myLibrary.push(new Book(title, author, pages, status))
   }
 
   //addBookToLibrary not working as intended, maybe a scope issue
   //not getting added to myLibrary array 
-  //value is getting added to the "*Value" variables
+  //value is getting added to the '*Value' variables
   
   function getUserInput(event){ 
     let titleValue= document.getElementById('title').value;
@@ -115,15 +125,15 @@ function Book (title, author, pages, status) {
   
 
   //TEST BOOKS//
-  addBookToLibrary ("Dune", "Frank Herbert", 800, "haven't read")
+  addBookToLibrary('Dune', 'Frank Herbert', 800, 'haven\'t read')
 
-  addBookToLibrary ("The Name of the wind", "Patrick Rothfuss", 600, "have read")
+  addBookToLibrary('The Name of the wind', 'Patrick Rothfuss', 600, 'have read')
 
-  addBookToLibrary ("The Wise Mans Fear", "Patrick Rothfuss", 700, "curently reading")
+  addBookToLibrary('The Wise Mans Fear', 'Patrick Rothfuss', 700, 'curently reading')
 
-  addBookToLibrary ("The Guest List", "Gillian Flynn", 320, "haven't read")
+  addBookToLibrary('The Guest List', 'Gillian Flynn', 320, 'haven\'t read')
 
-  populateTable (myLibrary, myLibrary.length)
+  insertValues(myLibrary, myLibrary.length)
 
 
 
