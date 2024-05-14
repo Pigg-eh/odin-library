@@ -59,7 +59,7 @@ function Book(title, author, pages, status) {
 
         
         createButton()
-        // removeElement()
+        removeElement()
       } 
     }
 
@@ -74,10 +74,14 @@ function Book(title, author, pages, status) {
     }
 
     function removeElement() {
+    //this might be helpful? pleeease
+    // table.library:nth-child(2)
+
+      let table = document.querySelector('table.library ')
       let removeBtn = document.querySelector('tr:last-child > button')
-        removeBtn.addEventListener('click', () => {
+        removeBtn.addEventListener('click', () => { 
         // myLibrary.splice (indexOf(), 1)
-        console.log('thomas cat')
+        console.log(table.rowIndex)
       });
 
 
@@ -90,6 +94,10 @@ function Book(title, author, pages, status) {
 
 
       insertTable()
+    }
+
+    function addToTable() {  
+      let lastRow = document.querySelector('table.library:last-child')
     }
 
     function toggleForm() {
