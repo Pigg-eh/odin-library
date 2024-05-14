@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pages, status) {
     this.title = title
@@ -38,13 +38,14 @@ function Book(title, author, pages, status) {
     insertHeader()
   }
 
-  function insertValues(myLibrary, length) { 
+  function insertValues(myLibrary, i) { 
     let table = document.querySelector('table.library');
-    for (i=0; i < length; i++){
+    // for (i=0; i < length; i++){
+      
       let newRow = table.insertRow(i+1);
         table.appendChild(newRow)
-
-        Object.values(myLibrary[i]).forEach((key) => {
+        console.log(Object.values)
+        Object.values(myLibrary).forEach((key) => {
           if(typeof(key) != 'function'){
             
 
@@ -60,7 +61,7 @@ function Book(title, author, pages, status) {
         
         createButton()
         removeElement()
-      } 
+      // } 
     }
 
     function createButton(element) {
@@ -74,7 +75,7 @@ function Book(title, author, pages, status) {
     }
 
     function removeElement() {
-    //this might be helpful? pleeease
+    //this might be helpful? 
     // table.library:nth-child(2)
 
       let table = document.querySelector('table.library ')
@@ -89,8 +90,9 @@ function Book(title, author, pages, status) {
     
 
     function clearTable(){ //take out for loop maybe
-      let table = document.querySelector('table');
+      let table = document.querySelector('table'); //clear myLibrary itself
       table.remove('td')
+      myLibrary = []
 
 
       insertTable()
@@ -116,9 +118,6 @@ function Book(title, author, pages, status) {
     myLibrary.push(new Book(title, author, pages, status))
   }
 
-  //addBookToLibrary not working as intended, maybe a scope issue
-  //not getting added to myLibrary array 
-  //value is getting added to the '*Value' variables
   
   function getUserInput(event){ 
     let titleValue= document.getElementById('title').value;
@@ -126,22 +125,26 @@ function Book(title, author, pages, status) {
     let pagesValue= document.getElementById('pages').value;
     let statusValue= document.getElementById('status').value;
     event.preventDefault()
-    addBookToLibrary(titleValue, authorValue, pagesValue, statusValue)
-  }
 
+    let rowIndex = myLibrary.length
+    
+
+    addBookToLibrary(titleValue, authorValue, pagesValue, statusValue)
+    insertValues(myLibrary[rowIndex], rowIndex)
+  }
 
   
 
   //TEST BOOKS//
-  addBookToLibrary('Dune', 'Frank Herbert', 800, 'haven\'t read')
-
-  addBookToLibrary('The Name of the wind', 'Patrick Rothfuss', 600, 'have read')
-
-  addBookToLibrary('The Wise Mans Fear', 'Patrick Rothfuss', 700, 'curently reading')
-
-  addBookToLibrary('The Guest List', 'Gillian Flynn', 320, 'haven\'t read')
-
-  insertValues(myLibrary, myLibrary.length)
+  // addBookToLibrary('Dune', 'Frank Herbert', 800, 'haven\'t read')
+  // insertValues(myLibrary[0], 0)
+  // addBookToLibrary('The Name of the wind', 'Patrick Rothfuss', 600, 'have read')
+  // insertValues(myLibrary[1], 1)
+  // addBookToLibrary('The Wise Mans Fear', 'Patrick Rothfuss', 700, 'curently reading')
+  // insertValues(myLibrary[2], 2)
+  // addBookToLibrary('The Guest List', 'Gillian Flynn', 320, 'haven\'t read')
+  // insertValues(myLibrary[3], 3)
+  // // insertValues(myLibrary, myLibrary.length)
 
 
 
