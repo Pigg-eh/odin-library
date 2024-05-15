@@ -43,6 +43,7 @@ function Book(title, author, pages, status) {
       
       let newRow = table.insertRow(i+1);
         table.appendChild(newRow)
+        
         Object.values(myLibrary).forEach((key) => {
           if(typeof(key) != 'function'){
             
@@ -51,27 +52,33 @@ function Book(title, author, pages, status) {
             tableCell.textContent = key;
             newRow.append(tableCell);
 
+          
           }
         });
 
-        createReadBtn()
+        addStatusClass()
         createRemoveBtn()
         addRemoveListeners()
+        
     }
 
-    function createReadBtn() {
 
+    function addStatusClass() {
+      let element = document.querySelectorAll('td:nth-child(4)')
+      element.forEach((key) => key.classList.add('status'))
     }
 
     function createRemoveBtn(element) {
       let lastColumn = document.querySelector('tr:last-child');
-        let btnNode = document.createElement('button')
-        
-        lastColumn.appendChild(btnNode)
-        btnNode.textContent = '-'
-        lastColumn.append(btnNode)
-
+      let btnNode = document.createElement('button')
+      
+      lastColumn.appendChild(btnNode)
+      btnNode.textContent = '-'
+      lastColumn.append(btnNode)
+      
     }
+
+
 
     function addRemoveListeners() {
     
@@ -134,6 +141,7 @@ function Book(title, author, pages, status) {
 
     addBookToLibrary(titleValue, authorValue, pagesValue, statusValue)
     insertValues(myLibrary[rowIndex], rowIndex)
+    
   }
 
   
@@ -141,12 +149,12 @@ function Book(title, author, pages, status) {
   //TEST BOOKS//
   addBookToLibrary('Dune', 'Frank Herbert', 800, 'unread')
   insertValues(myLibrary[0], 0)
-  addBookToLibrary('The Name of the wind', 'Patrick Rothfuss', 600, 'read')
-  insertValues(myLibrary[1], 1)
-  addBookToLibrary('The Wise Mans Fear', 'Patrick Rothfuss', 700, 'unread')
-  insertValues(myLibrary[2], 2)
-  addBookToLibrary('The Guest List', 'Gillian Flynn', 320, 'read')
-  insertValues(myLibrary[3], 3)
+  // addBookToLibrary('The Name of the wind', 'Patrick Rothfuss', 600, 'read')
+  // insertValues(myLibrary[1], 1)
+  // addBookToLibrary('The Wise Mans Fear', 'Patrick Rothfuss', 700, 'unread')
+  // insertValues(myLibrary[2], 2)
+  // addBookToLibrary('The Guest List', 'Gillian Flynn', 320, 'read')
+  // insertValues(myLibrary[3], 3)
   // insertValues(myLibrary, myLibrary.length)
 
 
