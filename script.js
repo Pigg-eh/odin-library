@@ -20,7 +20,7 @@ function Book(title, author, pages, status) {
   
   let info = ['Title', 'Author', 'Pages', 'Status', 'Remove']
     info.forEach((arr) => {
-      
+
       let tableHeader = document.createElement('th');
       tableHeader.textContent = arr;
       rows.appendChild(tableHeader);
@@ -40,28 +40,23 @@ function Book(title, author, pages, status) {
 
   function insertValues(myLibrary, i) { 
     let table = document.querySelector('table.library');
-    // for (i=0; i < length; i++){
       
       let newRow = table.insertRow(i+1);
         table.appendChild(newRow)
-        console.log(Object.values)
         Object.values(myLibrary).forEach((key) => {
           if(typeof(key) != 'function'){
             
 
-            console.log(typeof(key))
             let tableCell = document.createElement('td');
             tableCell.textContent = key;
             newRow.append(tableCell);
 
-            //assign row number attribute from here
           }
         });
 
         
         createButton()
-        removeElement()
-      // } 
+        addRemoveListeners()
     }
 
     function createButton(element) {
@@ -74,15 +69,20 @@ function Book(title, author, pages, status) {
 
     }
 
-    function removeElement() {
+    function addRemoveListeners() {
     //this might be helpful? 
     // table.library:nth-child(2)
 
-      let table = document.querySelector('table.library ')
+      let table = document.querySelector('table.library')
       let removeBtn = document.querySelector('tr:last-child > button')
+      
         removeBtn.addEventListener('click', () => { 
-        // myLibrary.splice (indexOf(), 1)
-        console.log(table.rowIndex)
+          console.log(table.rowIndex)
+          console.log('addRemoveListeners')
+          myLibrary.splice(0, 1) 
+          console.log(event.target.closest('tr').rowIndex)
+          table.deleteRow((event.target.closest('tr').rowIndex))
+
       });
 
 
@@ -136,8 +136,8 @@ function Book(title, author, pages, status) {
   
 
   //TEST BOOKS//
-  // addBookToLibrary('Dune', 'Frank Herbert', 800, 'haven\'t read')
-  // insertValues(myLibrary[0], 0)
+  addBookToLibrary('Dune', 'Frank Herbert', 800, 'haven\'t read')
+  insertValues(myLibrary[0], 0)
   // addBookToLibrary('The Name of the wind', 'Patrick Rothfuss', 600, 'have read')
   // insertValues(myLibrary[1], 1)
   // addBookToLibrary('The Wise Mans Fear', 'Patrick Rothfuss', 700, 'curently reading')
