@@ -57,6 +57,7 @@ function Book(title, author, pages, status) {
         });
 
         addStatusClass()
+        createStatusBtn('test')
         createRemoveBtn()
         addRemoveListeners()
         
@@ -66,6 +67,17 @@ function Book(title, author, pages, status) {
     function addStatusClass() {
       let element = document.querySelectorAll('td:nth-child(4)')
       element.forEach((key) => key.classList.add('status'))
+    }
+
+    function createStatusBtn(test) {
+      let statusColumn = document.querySelectorAll('td.status');
+      let btnNode = document.createElement('button')
+      
+
+      statusColumn.forEach((element) => {
+        element.appendChild(btnNode)
+        btnNode.textContent = test
+      });
     }
 
     function createRemoveBtn(element) {
