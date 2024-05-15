@@ -54,12 +54,16 @@ function Book(title, author, pages, status) {
           }
         });
 
-        
-        createButton()
+        createReadBtn()
+        createRemoveBtn()
         addRemoveListeners()
     }
 
-    function createButton(element) {
+    function createReadBtn() {
+
+    }
+
+    function createRemoveBtn(element) {
       let lastColumn = document.querySelector('tr:last-child');
         let btnNode = document.createElement('button')
         
@@ -70,8 +74,7 @@ function Book(title, author, pages, status) {
     }
 
     function addRemoveListeners() {
-    //this might be helpful? 
-    // table.library:nth-child(2)
+    
 
       let table = document.querySelector('table.library')
       let removeBtn = document.querySelector('tr:last-child > button')
@@ -89,8 +92,8 @@ function Book(title, author, pages, status) {
     }
     
 
-    function clearTable(){ //take out for loop maybe
-      let table = document.querySelector('table'); //clear myLibrary itself
+    function clearTable(){ 
+      let table = document.querySelector('table');    
       table.remove('td')
       myLibrary = []
 
@@ -136,15 +139,15 @@ function Book(title, author, pages, status) {
   
 
   //TEST BOOKS//
-  addBookToLibrary('Dune', 'Frank Herbert', 800, 'haven\'t read')
+  addBookToLibrary('Dune', 'Frank Herbert', 800, 'unread')
   insertValues(myLibrary[0], 0)
-  // addBookToLibrary('The Name of the wind', 'Patrick Rothfuss', 600, 'have read')
-  // insertValues(myLibrary[1], 1)
-  // addBookToLibrary('The Wise Mans Fear', 'Patrick Rothfuss', 700, 'curently reading')
-  // insertValues(myLibrary[2], 2)
-  // addBookToLibrary('The Guest List', 'Gillian Flynn', 320, 'haven\'t read')
-  // insertValues(myLibrary[3], 3)
-  // // insertValues(myLibrary, myLibrary.length)
+  addBookToLibrary('The Name of the wind', 'Patrick Rothfuss', 600, 'read')
+  insertValues(myLibrary[1], 1)
+  addBookToLibrary('The Wise Mans Fear', 'Patrick Rothfuss', 700, 'unread')
+  insertValues(myLibrary[2], 2)
+  addBookToLibrary('The Guest List', 'Gillian Flynn', 320, 'read')
+  insertValues(myLibrary[3], 3)
+  // insertValues(myLibrary, myLibrary.length)
 
 
 

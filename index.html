@@ -21,7 +21,10 @@
             <br><label for="pages">Pages:</label>
             <br><input type="text" name="pages" id="pages" placeholder="860">
             <br><label for="status">Read Status:</label>
-            <br><input type="text" name="status" id="status" placeholder="have read">
+            <br><select id="status" name="status">
+                <option value="read">read</option>
+                <option value="unread">unread</option>
+              </select>
             <br><input class="userInput" type="submit"  onclick = "addToTable()" value="Submit" >
         </form>
     </div>
