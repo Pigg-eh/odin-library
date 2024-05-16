@@ -4,6 +4,10 @@
     background-repeat: no-repeat;
     background-attachment: fixed; 
     background-size: 100% 100%;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
  }
  
  input.button {
@@ -16,6 +20,10 @@
  table {
    color: white;
    text-shadow: 1px black;
+   background-color: black ;
+   opacity: 75%;
+   justify-content: center;
+
  }
 
  table, th, td {
@@ -28,3 +36,4 @@
  form {
   visibility: hidden;
  }
+

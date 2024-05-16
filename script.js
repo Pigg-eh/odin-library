@@ -57,7 +57,8 @@ function Book(title, author, pages, status) {
         });
 
         addStatusClass()
-        createStatusBtn('test')
+        createStatusBtn(myLibrary.status) //here stupid
+        addStatusListeners()
         createRemoveBtn()
         addRemoveListeners()
         
@@ -69,14 +70,32 @@ function Book(title, author, pages, status) {
       element.forEach((key) => key.classList.add('status'))
     }
 
-    function createStatusBtn(test) {
+    function createStatusBtn(status) {
       let statusColumn = document.querySelectorAll('td.status');
       let btnNode = document.createElement('button')
       
-
       statusColumn.forEach((element) => {
         element.appendChild(btnNode)
-        btnNode.textContent = test
+        btnNode.textContent = status
+      });
+    }
+    
+
+    function addStatusListeners() { //change functionality to a kinda toggle thing 
+    
+
+      let statusBtn = document.querySelector('td.status:last-child > button')
+      statusBtn.addEventListener('click', () => { 
+        
+        event.target.textContent
+        let index = event.target.closest('tr').rowIndex
+        let btnSelector = ('td.status  button')
+
+        if (statusBtn.textContent === 'read'){
+          statusBtn.textContent= 'unread'
+        }else if (statusBtn.textContent === 'unread'){
+          statusBtn.textContent= 'read'
+        }
       });
     }
 
@@ -90,8 +109,6 @@ function Book(title, author, pages, status) {
       
     }
 
-
-
     function addRemoveListeners() {
     
 
@@ -99,8 +116,6 @@ function Book(title, author, pages, status) {
       let removeBtn = document.querySelector('tr:last-child > button')
       
         removeBtn.addEventListener('click', () => { 
-          console.log(table.rowIndex)
-          console.log('addRemoveListeners')
           myLibrary.splice(0, 1) 
           console.log(event.target.closest('tr').rowIndex)
           table.deleteRow((event.target.closest('tr').rowIndex))
@@ -120,9 +135,7 @@ function Book(title, author, pages, status) {
       insertTable()
     }
 
-    function addToTable() {  
-      let lastRow = document.querySelector('table.library:last-child')
-    }
+   
 
     function toggleForm() {
       let form = document.querySelector('form')
