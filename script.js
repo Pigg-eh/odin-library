@@ -1,14 +1,19 @@
 let myLibrary = [];
 
-function Book(title, author, pages, status) {
+class Book{
+  constructor(title, author, pages, status) {
+
     this.title = title
     this.author = author
     this.pages = pages
     this.status = status
-    this.info =   () => {
-      return `Title: ${this.title} Author:${this.author} Pages:${this.pages} Status:${this.status}`
-    }
+    
   }
+
+  info(){
+    return `Title: ${this.title} Author:${this.author} Pages:${this.pages} Status:${this.status}`
+  }
+}
 
   insertHeader()
   function insertHeader() {
