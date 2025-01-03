@@ -1,32 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <table class="library"></table>
-    <input class="button" type = "button" onclick = "clearTable()" value = "Clear Table">
+    <input
+      class="button"
+      type="button"
+      onclick="clearTable()"
+      value="Clear Table"
+    />
 
     <div onsubmit="getUserInput(event)" class="form-container">
-        <input class="button" type = "button" onclick = "toggleForm()" value = "Add new book">
-        <form action="" method="get">
-            <br><label for="title">Title:</label>
-            <br><input type="text" name="title" id="title" placeholder="Harry Potter">
-            <br><label for="author">Author:</label>
-            <br><input type="text" name="author" id="author" placeholder="J.K. Rowling">
-            <br><label for="pages">Pages:</label>
-            <br><input type="text" name="pages" id="pages" placeholder="860">
-            <br><label for="status">Read Status:</label>
-            <br><select id="status" name="status">
-                <option value="read">read</option>
-                <option value="unread">unread</option>
-              </select>
-            <br><input class="userInput" type="submit" value="Submit" >
-        </form>
+      <input
+        class="button"
+        type="button"
+        onclick="toggleForm()"
+        value="Add new book"
+      />
+      <form action="" method="get">
+        <br /><label for="title">Title:</label> <br /><input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Harry Potter"
+          minlength="5"
+          maxlength="30"
+          required
+        />
+        <br /><label for="author">Author:</label> <br /><input
+          type="text"
+          name="author"
+          id="author"
+          placeholder="J.K. Rowling"
+          minlength="7"
+          maxlength="20"
+          required
+        />
+        <br /><label for="pages">Pages:</label> <br /><input
+          type="number"
+          name="pages"
+          id="pages"
+          placeholder="860"
+          required
+        />
+        <br /><label for="status">Read Status:</label> <br /><select
+          id="status"
+          name="status"
+          required
+        >
+          <option value="read">read</option>
+          <option value="unread">unread</option>
+        </select>
+        <br /><input class="userInput" type="submit" value="Submit" required />
+      </form>
     </div>
-</body>
+  </body>
 </html>
